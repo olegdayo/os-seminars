@@ -4,3 +4,6 @@
 # Binaries
 bin/
 target/
+
+# IDE
+.vscode/
