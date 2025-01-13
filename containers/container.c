@@ -7,12 +7,12 @@ int change_directory() {
     printf("Changing the root directory\n");
 }
 
-int set_resourse_limits() {
-    printf("Applying a c_group\n");
-}
-
 int set_namespace() {
     printf("Creating a namespace\n");
+}
+
+int set_resourse_limits() {
+    printf("Applying a c_group\n");
 }
 
 int run(char** argv) {
@@ -21,6 +21,9 @@ int run(char** argv) {
 }
 
 int main(int argc, char** argv) {
+    change_directory();
+    set_namespace();
+    set_resourse_limits();
     if (!strcmp(argv[1], "run")) {
         run(argv + 2);
     }
