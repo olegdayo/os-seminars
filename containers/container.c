@@ -25,7 +25,7 @@ int set_resourse_limits() {
 
 // Change host
 int update_networking() {
-    printf("Setting up networking");
+    printf("Setting up networking\n");
 }
 
 // Execute the commands.
