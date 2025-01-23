@@ -4,12 +4,17 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <errno.h>
 
 // Hide node's filesystem.
 int change_directory() {
     printf("Changing the root directory\n");
     mkdir("/tmp/container", 0777);
-    chroot("/tmp/container-fs"); // TODO: WTF???
+    int a = chroot("/tmp/container-fs"); // TODO: WTF???
+    if (a == -1) {
+        printf("%s", strerror(errno));
+    }
+    printf("%d\n", a);
     chdir("/");
 }
 
