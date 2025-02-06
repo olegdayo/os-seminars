@@ -8,7 +8,7 @@ import (
 )
 
 func changeDirectory(path string) error {
-	err := syscall.Mkdir(path, 0777)
+	err := syscall.Mkdir(path, 0o777)
 	if err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func setResourceLimits() error {
 	return nil
 }
 
-func updateNetwork() error {
+func updateHost() error {
 	return nil
 }
 

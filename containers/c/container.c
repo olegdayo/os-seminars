@@ -29,7 +29,7 @@ int set_resourse_limits() {
 }
 
 // Change host
-int update_networking() {
+int update_host() {
     printf("Setting up networking\n");
 }
 
