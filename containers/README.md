@@ -1,5 +1,7 @@
 # Containers
 
+TODO: overlayfs, seccomp, capabilities, privielege, mounts
+
 ## LXC
 
 ### Launching the container
