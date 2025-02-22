@@ -24,8 +24,6 @@ Check, that we cannot access host systems files
 
 Check, that we cannot get host info (or that it is changed at least)
 
-#### Networking (optional)
-
 ## Launching your first container with zero abstractions
 
 ### Processes isolation
