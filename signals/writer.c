@@ -3,14 +3,14 @@
 #include <unistd.h>
 
 void handler(int signum) {
-	printf("BOOBA\n");
+	printf("KEK\n");
 }
 
 int main(int argc, char** argv) {
 	printf("%d\n", getpid());
 	(void)signal(SIGTERM, handler);
 	while (1) {
-		printf("ABOBA\n");
+		printf("LOL\n");
 		sleep(1);
 	}
 }
