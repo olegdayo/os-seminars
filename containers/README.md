@@ -77,6 +77,8 @@ func changeDirectory(path string) error {
 
 Due to new filesystem, we don't really have userspace now
 
+We are going to do it manually
+
 ```go
 // TODO
 ```
