@@ -1,6 +1,6 @@
 # Containers
 
-TODO: overlayfs, seccomp, capabilities, privielege, mounts, networking
+TODO: overlayfs, seccomp, capabilities, privielege, mounts, networking (at least as theory)
 
 ## LXC
 
