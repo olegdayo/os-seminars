@@ -10,18 +10,31 @@ import (
 func changeDirectory(path string) error {
 	err := syscall.Mkdir(path, 0o777)
 	if err != nil {
+		fmt.Println(err)
+	}
+
+	err = syscall.Mkdir(path, 0777)
+	if err != nil {
 		return err
 	}
+
+	for _, sysDir := range []string{"/usr/bin", "/usr/lib"} {
+		cmd := exec.Command("cp", "-r", sysDir, path)
+		err = cmd.Run()
+		if err != nil {
+			return err
+		}
+	}
+
+	// err = syscall.Chdir(path)
+	// if err != nil {
+	// 	return err
+	// }
 
 	err = syscall.Chroot(path)
 	if err != nil {
 		return err
 	}
-
-	// err = os.Chdir(path)
-	// if err != nil {
-	// 	return err
-	// }
 
 	return nil
 }
