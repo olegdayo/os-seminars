@@ -10,6 +10,11 @@ import (
 func changeDirectory(path string) error {
 	err := syscall.Mkdir(path, 0o777)
 	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}
+
+	err = os.CopyFS(path, os.DirFS("/usr/bin"))
+	if err != nil {
 		return err
 	}
 

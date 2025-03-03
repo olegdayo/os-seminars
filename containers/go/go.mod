@@ -1,3 +1,3 @@
 module github.com/olegdayo/os-seminars/containers/go
 
-go 1.22
+go 1.23
