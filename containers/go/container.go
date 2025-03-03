@@ -10,10 +10,18 @@ import (
 func changeDirectory(path string) error {
 	err := syscall.Mkdir(path, 0o777)
 	if err != nil {
-		fmt.Printf("Error: %v\n", err)
+		fmt.Println(err)
 	}
 
-	err = os.CopyFS(path, os.DirFS("/usr/bin"))
+	for _, sysDir := range []string{"/usr", "/lib", "/lib64"} {
+		cmd := exec.Command("cp", "-r", sysDir, path)
+		err = cmd.Run()
+		if err != nil {
+			return err
+		}
+	}
+
+	err = syscall.Chdir(path)
 	if err != nil {
 		return err
 	}
@@ -23,10 +31,11 @@ func changeDirectory(path string) error {
 		return err
 	}
 
-	// err = os.Chdir(path)
-	// if err != nil {
-	// 	return err
-	// }
+	// TODO: relocate
+	err = os.Setenv("PATH", "/usr/bin")
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
