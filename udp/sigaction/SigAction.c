@@ -27,4 +27,3 @@ void InterruptSignalHandler(int signalType) {
     printf("Interrupt Received.  Exiting program.\n");
     exit(1);
 }
-

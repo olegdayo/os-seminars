@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  echo:
+    build: .
+    command: ["/app/configs/config.yaml"]
+    volumes:
+      # - 'host-file:container-file'
+      - './configs/config.yaml:/app/configs/config.yaml'
+    ports:
+      # - 'host-port:container-port'
+      - '80:8080'
